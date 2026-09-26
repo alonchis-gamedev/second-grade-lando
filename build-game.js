@@ -4,7 +4,7 @@ const Packager = require('@turbowarp/packager');
 
 async function main() {
   const name = process.argv[2];
-  if (!name || path.basename(name) !== name || !/^[\w-]+$/.test(name)) {
+  if (!name || name === '.' || name === '..' || path.basename(name) !== name || name.endsWith('.sb3')) {
     throw new Error('Usage: node build-game.js <game-name> (without .sb3)');
   }
 
